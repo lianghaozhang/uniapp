@@ -5,38 +5,43 @@
 			"style": {
 				"navigationBarTitleText": "青年帮新闻"
 			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path" : "pages/detail/detail",
+			"style" : 
+			{
+				"navigationBarTitleText" : "detail"
+			}
 		}
-	    ,{
-            "path" : "pages/user/user",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "个人中心",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#2b9939"
+		"navigationBarTitleText": "青年帮",
+		"navigationBarBackgroundColor": "#2b9939",
+		"onReachBottomDistance": 200
 	},
 	"uniIdRouter": {},
 	"tabBar": {
-		"color": "#bfbfbf",
-		"selectedColor": "#bfbfbf",
+		"color": "#353444",
+		"selectedColor": "#272636",
 		"list": [
 			{
 				"pagePath": "pages/index/index",
 				"text": "首页",
-				"iconPath": "static/homepage.png",
-				"selectedIconPath": "static/homepage_fill.png"
+				"iconPath": "static/home.png",
+				"selectedIconPath": "static/home_f.png"
 			},
 			{
 				"pagePath": "pages/user/user",
 				"text": "我的",
-				"iconPath": "static/people.png",
-				"selectedIconPath": "static/people_fill.png"
+				"iconPath": "static/mine.png",
+				"selectedIconPath": "static/mine_f.png"
 			}
 		]
 	}
