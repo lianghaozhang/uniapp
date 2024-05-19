@@ -1,0 +1,11 @@
+{
+	"easycom": {
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"dependencies": {
+		"uview-ui": "^2.0.36"
+	},
+	"devDependencies": {
+		"sass-loader": "^10.5.2"
+	}
+}
