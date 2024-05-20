@@ -7,7 +7,8 @@
 			<view class="title">{{newitem.title}}</view>
 			<view class="info">
 				<text>{{newitem.author}}</text>
-				<text>{{newitem.hits}}浏览</text>
+				<text v-if="newitem.hits">{{newitem.hits}}浏览</text>
+				<text v-else>{{newitem.lookTime}}</text>
 			</view>
 		</view>
 	</view>

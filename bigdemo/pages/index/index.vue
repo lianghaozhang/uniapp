@@ -66,14 +66,6 @@
 				// console.log(this.itemArr[index].id);
 				let cid = 50 + this.navIndex;
 				let id = this.itemArr[index].id;
-				if(!this.flag){
-					this.flag = 1;
-					uni.setStorageSync("history",[{"cid": cid, "id": id}]);
-				}else{
-					let historyArr = uni.getStorageSync("history");
-					historyArr.push({"cid": cid, "id": id});
-					uni.setStorageSync("history",historyArr);
-				}
 				uni.navigateTo({
 					url: `/pages/detail/detail?cid=${cid}&id=${id}`
 				})

@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/detail/detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "青年帮",
+    "navigationBarBackgroundColor": "#2b9939",
+    "onReachBottomDistance": 200
+  },
+  "tabBar": {
+    "color": "#353444",
+    "selectedColor": "#272636",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home_f.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "static/mine.png",
+        "selectedIconPath": "static/mine_f.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

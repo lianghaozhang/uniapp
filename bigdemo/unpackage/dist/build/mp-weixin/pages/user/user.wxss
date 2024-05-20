@@ -1,0 +1,1 @@
+.shang{height:200rpx;display:flex;border-bottom:1rpx solid grey;justify-content:center;align-items:center}.shang text{font-size:80rpx}.xia{padding:30rpx}.textitem .pic{padding:60rpx}.textitem .text{text-align:center;font-size:40rpx}

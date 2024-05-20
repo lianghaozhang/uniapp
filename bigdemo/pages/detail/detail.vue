@@ -6,7 +6,7 @@
 			<view class="time">发布日期：{{detail.posttime}}</view>
 		</view>
 		<view class="content">
-			<rich-text :nodes="detail.content"></rich-text>			
+			<rich-text :nodes="detail.content"></rich-text>
 		</view>
 		<view class="description">
 			声明：本站的内容均采集与腾讯新闻，如果侵权请联系管理（513894357@qq.com）进行整改删除，本站进行了内容采集不代表本站及作者观点，若有侵犯请及时联系管理员，谢谢您的支持。
@@ -31,7 +31,7 @@
 			console.log(e.id);
 		},
 		methods: {
-			getDetail(e){
+			getDetail(e) {
 				uni.showLoading({
 					"title": "数据加载中"
 				});
@@ -44,8 +44,9 @@
 					success: res => {
 						console.log(res.data);
 						res.data.posttime = parseTime(res.data.posttime);
-						res.data.content = res.data.content.replace(/<img/gi, '/<img style="max-width=100%"');
+						res.data.content = res.data.content.replace(/<img/gi, '<img style="max-width: 100%"');
 						this.detail = res.data;
+						this.savehistory();
 						uni.setNavigationBarTitle({
 							"title": this.detail.title,
 						})
@@ -53,7 +54,34 @@
 					complete: res => {
 						uni.hideLoading();
 					}
-				})
+				});
+			},
+			savehistory() {
+				//如果没有这个historyArr这个数组就初始化为空
+				let arr = uni.getStorageSync("historyArr") || [];
+				//拿到要在浏览历史中展示的数据
+				let historyItem = {
+					author: this.detail.author,
+					picurl: this.detail.picurl,
+					title: this.detail.title,
+					id: this.detail.id,
+					classid: this.detail.classid,
+					lookTime: parseTime(Date.now())
+				}
+
+				//记录去重
+				let index = arr.findIndex(i => {
+					return i.id == this.detail.id;
+				});
+				if (index >= 0) {
+					arr.splice(index, 1);
+				}
+				
+				//往数组头部添加浏览记录
+				arr.unshift(historyItem);
+				//只显示最新的十条历史记录
+				arr = arr.splice(0, 10);
+				uni.setStorageSync("historyArr", arr);
 			}
 		}
 	}
@@ -80,6 +108,9 @@
 
 		.content {
 			padding-bottom: 50rpx;
+			// img{
+			// 	max-width: 100%;
+			// }
 		}
 
 		.description {
